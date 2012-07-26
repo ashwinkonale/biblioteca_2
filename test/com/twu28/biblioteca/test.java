@@ -26,14 +26,14 @@ public class test {
         assertTrue(library.showMenuOptions());
 
     }
-    /*@Test         //Come Back here at Later Stage to verify user inputs
-    public void canGetUseInput(){
+    /*@Test
+    public void canGetUserInput(){
 
-        getInput menuOption = new getInput();
+        libraryBangalore menuOption = new libraryBangalore();
 
-        assertNotNull(menuOption.selectYourChoice("select menu option"));
+        assertTrue((Boolean) menuOption.selectYourChoice());
 
-    } */
+    }*/
     @Test
     public void canViewAllBooks(){
         libraryBangalore library =   new libraryBangalore();

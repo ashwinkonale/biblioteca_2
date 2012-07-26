@@ -2,6 +2,7 @@ package com.twu28.biblioteca;
 
 import java.awt.print.Book;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +29,8 @@ public class libraryBangalore {
     public boolean showMenuOptions() {
         System.out.println("1: View Books");
         System.out.println("2: reserve particular Book");
+        System.out.println("3: check you membership");
+        System.out.println("4: Exit the library");
         return true;  //To change body of created methods use File | Settings | File Templates.
     }
 
@@ -64,5 +67,38 @@ public class libraryBangalore {
     public boolean showLibrariansMessage() {
         System.out.println("Please talk to the Librarian!!");
         return true;
+    }
+
+
+
+    public int selectChoice() {
+        getInput opt  = new getInput();
+        String option = opt.selectYourChoice("select menu option");
+        int userOption = Integer.parseInt(option);
+        return userOption;
+    }
+
+    public boolean takeaction(int choice) {
+        if(choice==1){viewAllBooks();
+        }
+        else if(choice==2){
+            System.out.println("select your book");
+            Scanner reader = new Scanner(System.in);
+            String userRequires = reader.nextLine();
+            reserveBook(userRequires) ;
+        }
+        else if(choice==3){
+            showLibrariansMessage();
+        }
+        else if(choice==4){
+            System.exit(0);
+        }
+        else {
+            System.out.println("invalid choice");
+            return false;
+        }
+        return true;
+
+        //To change body of created methods use File | Settings | File Templates.
     }
 }
