@@ -2,6 +2,7 @@ package com.twu28.biblioteca;
 
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
@@ -53,6 +54,26 @@ public class test {
         assertTrue(library.showLibrariansMessage());
 
     }
+
+    // come back later
+    @Test
+    public void presentNewMenuOption(){
+        libraryBangalore newOption = new libraryBangalore();
+        assertTrue(newOption.takeaction(5));
+
+    }
+    @Test
+    public void seeIfMovieDetailsAreSet(){
+        movieDetails ash = new movieDetails();
+        assertFalse(ash.sizeOfMovieList());
+
+    }
+    @Test
+    public void viewMovieDetails(){
+        movieDetails view = new movieDetails();
+        assertTrue(view.viewMovieList());
+    }
+
 
 
 

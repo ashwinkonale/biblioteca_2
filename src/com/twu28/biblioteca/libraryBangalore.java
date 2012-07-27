@@ -31,6 +31,8 @@ public class libraryBangalore {
         System.out.println("2: reserve particular Book");
         System.out.println("3: check you membership");
         System.out.println("4: Exit the library");
+        System.out.println("5: Viw List of movies available in library");
+
         return true;  //To change body of created methods use File | Settings | File Templates.
     }
 
@@ -92,6 +94,11 @@ public class libraryBangalore {
         }
         else if(choice==4){
             System.exit(0);
+        }
+        else if(choice==5){
+            movieDetails newOption = new movieDetails();
+            newOption.viewMovieList();
+            return true;
         }
         else {
             System.out.println("invalid choice");
