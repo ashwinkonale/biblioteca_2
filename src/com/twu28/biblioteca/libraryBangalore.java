@@ -1,6 +1,5 @@
 package com.twu28.biblioteca;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,11 +26,11 @@ public class libraryBangalore {
     }
 
     public boolean showMenuOptions() {
-        System.out.println("1: View Books");
-        System.out.println("2: reserve particular Book");
-        System.out.println("3: check you membership");
-        System.out.println("4: Exit the library");
-        System.out.println("5: Viw List of movies available in library");
+        System.out.println("1: View Books In Library");
+        System.out.println("2: Reserve Book in library");
+        System.out.println("3: View movies available in library");
+        System.out.println("4: check your membership status");
+        System.out.println("5: Exit the library");
 
         return true;  //To change body of created methods use File | Settings | File Templates.
     }
@@ -42,7 +41,37 @@ public class libraryBangalore {
 
         }
 
+        System.out.println("Do you want to reserve a book?  y/n ");
+        Scanner reader = new Scanner(System.in);
+        String userWish = reader.nextLine();
+        if (userWish.equals("y")){
+            takeaction(2);
+        }
+        else if (userWish.equals("n")){
+            goBackToMenu();
+        }
+        else{
+            System.out.println("Invalid choice");
+        }
+
         return true;  //To change body of created methods use File | Settings | File Templates.
+    }
+
+    public void goBackToMenu() {
+        System.out.println("Do you want to go back to menu?  y/n ");
+        Scanner reader = new Scanner(System.in);
+        String userWish = reader.nextLine();
+        if (userWish.equals("y")){
+            showMenuOptions();
+        }
+        else if (userWish.equals("n")){
+            takeaction(5);
+        }
+        else{
+            System.out.println("Invalid choice");
+        }
+
+
     }
 
     public boolean reserveBook(String bookname) {
@@ -55,13 +84,14 @@ public class libraryBangalore {
                 break;
             }
         }
-        if(availability == true){
+        if(availability){
             System.out.println("Congratulation!! You Have Reserved the Book named -->" + bookname);
 
         }
         else {
             System.out.println("Sorry!! "+ bookname + " is not currently available");
         }
+        goBackToMenu();
         return availability;
 
     }
@@ -76,36 +106,38 @@ public class libraryBangalore {
     public int selectChoice() {
         getInput opt  = new getInput();
         String option = opt.selectYourChoice("select menu option");
-        int userOption = Integer.parseInt(option);
-        return userOption;
+        return Integer.parseInt(option);
     }
 
     public boolean takeaction(int choice) {
-        if(choice==1){viewAllBooks();
+        switch (choice) {
+            case 1:
+                viewAllBooks();
+                break;
+            case 2:
+                System.out.println("select your book");
+                Scanner reader = new Scanner(System.in);
+                String userRequires = reader.nextLine();
+                reserveBook(userRequires) ;
+                break;
+            case 3:
+                movieDetails newOption = new movieDetails();
+                newOption.viewMovieList();
+                break;
+            case 4:
+                showLibrariansMessage();
+                break;
+            case 5:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("invalid choice");
+                return false;
+
         }
-        else if(choice==2){
-            System.out.println("select your book");
-            Scanner reader = new Scanner(System.in);
-            String userRequires = reader.nextLine();
-            reserveBook(userRequires) ;
-        }
-        else if(choice==3){
-            showLibrariansMessage();
-        }
-        else if(choice==4){
-            System.exit(0);
-        }
-        else if(choice==5){
-            movieDetails newOption = new movieDetails();
-            newOption.viewMovieList();
             return true;
-        }
-        else {
-            System.out.println("invalid choice");
-            return false;
-        }
-        return true;
 
         //To change body of created methods use File | Settings | File Templates.
-    }
+
+}
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class movieDetails {
    public ArrayList<movie> movieList = new ArrayList<movie>();
 
-    public movieDetails() {
+    public movieDetails(){
        /* movie movie1 = new movie();
         movie1.setMovieName("ashwin");
         movie movie2 = new movie();
@@ -50,6 +50,7 @@ public class movieDetails {
         movie movie14 = new movie("The Matrix","Andy Wachowski","N/A");
 
         movie movie15 = new movie("City of God","Fernando Meirelles","N/A");
+
         movieList.add(movie1);
         movieList.add(movie2);
         movieList.add(movie3);
@@ -67,7 +68,6 @@ public class movieDetails {
         movieList.add(movie15);
        // System.out.println(movieList.indexOf(movie10));
 
-
     }
 
     public boolean sizeOfMovieList() {
@@ -76,11 +76,15 @@ public class movieDetails {
     }
 
     public boolean viewMovieList() {
-    for(int i=0;i< movieList.size();i++){
-        System.out.print("  " + movieList.get(i).getName());
-        System.out.print("  " + movieList.get(i).getDirectorName());
-        System.out.println("  " + movieList.get(i).getRating());
+        System.out.print("  -movie Name -Director- -Rating-   " );
+
+        for (movie aMovieList : movieList) {
+            System.out.print("  " + aMovieList.getName());
+            System.out.print("  " + aMovieList.getDirectorName());
+            System.out.println("  " + aMovieList.getRating());
         }
+        libraryBangalore goToMainMenu = new libraryBangalore();
+        goToMainMenu.goBackToMenu();
         return true;
     }
 }

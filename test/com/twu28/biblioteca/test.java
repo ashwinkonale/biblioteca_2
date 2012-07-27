@@ -2,8 +2,8 @@ package com.twu28.biblioteca;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,7 +59,7 @@ public class test {
     @Test
     public void presentNewMenuOption(){
         libraryBangalore newOption = new libraryBangalore();
-        assertTrue(newOption.takeaction(5));
+        assertTrue(newOption.takeaction(1));
 
     }
     @Test
